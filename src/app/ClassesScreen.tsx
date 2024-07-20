@@ -11,13 +11,13 @@ const Tab = createMaterialBottomTabNavigator();
 
 export default function ClassesScreen() {
     return (
-        <ScrollView>
-        <YStack flex={1} margin={20} justifyContent='center' alignItems='flex-start' > 
-        <Appbar.Header>
+        <>
+            <Appbar.Header style={{marginLeft:20}}>
             <Text variant='headlineLarge'>Discover</Text>        
             <Appbar.Action icon="magnify" style={{justifyContent:'flex-end'}}/>
         </Appbar.Header>
-        <XStack space="$2">
+        <YStack flex={1} margin={20} justifyContent='center' alignItems='flex-start' > 
+        <XStack space="$2" marginBottom={20}>
             <Button themeInverse>Discover</Button>
             <Button>Your Classes</Button>
             <Button>Classmates</Button>
@@ -25,7 +25,7 @@ export default function ClassesScreen() {
         <XStack>
             <Text style={{marginBottom: 10}} variant='titleMedium'>All Semesters</Text>
         </XStack>
-        <ScrollView horizontal>        
+        <ScrollView horizontal contentContainerStyle={{ flexGrow: 1, paddingBottom:200}}>        
             <XStack alignContent='flex-end' padding={2}>
             <Card style={{marginRight:20, width:200}}>
                 <Card.Cover/>
@@ -50,27 +50,31 @@ export default function ClassesScreen() {
         <XStack>
             <Text style={{marginTop:20, marginBottom:10}} variant='titleMedium'>Your Semesters</Text>
         </XStack>
+        <ScrollView width={350}>
+        <YStack>
         <XStack style={{marginBottom:20}}>
-            <Card style={{width:170, marginRight:20}}>
+            <Card style={{width:160, marginRight:20, marginLeft:2, marginTop:2}}>
                 <Card.Title title="Fall 2024" subtitle="5 classes"/>
                 <Star marginLeft={15} marginBottom={10}/>
             </Card>
-            <Card style={{width:170, marginRight:20}}>
+            <Card style={{width:160, marginTop:2}}>
                 <Card.Title title="Spring 2025" subtitle="4 classes"/>
                 <ChevronsRight marginLeft={15} marginBottom={10}/>
             </Card>
         </XStack>
         <XStack style={{marginBottom:20}}>
-            <Card style={{width:170, marginRight:20}}>
+            <Card style={{width:160, marginRight:20, marginLeft:2, marginTop:2}}>
                 <Card.Title title="Fall 2023" subtitle="6 classes"/>
                 <History marginLeft={15} marginBottom={10}/>
             </Card>
-            <Card style={{width:170, marginRight:20}}>
+            <Card style={{width:160}}>
                 <Card.Title title="Spring 2024" subtitle="3 classes"/>
                 <History marginLeft={15} marginBottom={10}/>
             </Card>
         </XStack>
         </YStack>
         </ScrollView>  
+        </YStack>
+        </>
     );
 }
