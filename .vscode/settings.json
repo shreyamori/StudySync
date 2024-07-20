@@ -1,0 +1,19 @@
+{
+  "detectedConfig": {
+    "typescript": true,
+    "naming": "Pascal Case",
+    "unit": "em",
+    "framework": "react",
+    "styling": "'Inline Styles"
+  },
+  "locofyConfig": {
+    "project": "StudySync Mock-ups",
+    "id": "6699c9eb5a566b52f537aa60",
+    "framework": "react-native",
+    "typescript": true,
+    "project_environment": "expo_go",
+    "path": "assets/",
+    "componentsPath": "d:\\VSCode\\Buckeye-Baddies\\src\\components",
+    "screensPath": "d:\\VSCode\\Buckeye-Baddies\\src\\pages"
+  }
+}
