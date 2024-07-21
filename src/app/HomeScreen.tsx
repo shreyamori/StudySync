@@ -1,15 +1,18 @@
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { Button, SizableText, Tabs, Text, XStack, YStack } from 'tamagui';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 import { db } from '../support/firebase';
 import React from 'react';
+import { router, useNavigation } from 'expo-router';
 
 const Tab = createMaterialBottomTabNavigator();
 const logoRed = '#EF6466'
 const whiteGrey = '#EFEFEF'
 
-export default function homeScreen() {
+export default function HomeScreen() {
     return (
         <YStack flex={1}> 
             <Text  style={{fontFamily: 'Arial Rounded MT bold', top: 80, left: 25}} fontSize={50}  color = "#EF6466" >
@@ -50,7 +53,7 @@ export default function homeScreen() {
             </XStack>
 
             <Button
-                onPress={() => alert('Goals')}
+                onPress={() => router.navigate('Goals')}
 
                 style={{
                     top: 120,
@@ -65,6 +68,7 @@ export default function homeScreen() {
                 <Text  style={{fontFamily: 'Arial Rounded MT bold'}} alignContent = "center" fontSize={20}  color = "#EF6466">
                     Goals
                 </Text>
+
             </Button>
             <Button
                 onPress={() => alert('WeeklyCalendar')}

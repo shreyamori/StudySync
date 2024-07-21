@@ -4,10 +4,18 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 import { CircleUserRound, Home, Notebook, Settings } from '@tamagui/lucide-icons';
 import { db } from '../support/firebase';
 import React from 'react';
+import AppNavigator from './AppNavigator'; // Adjust the import as per your setup
+
+
 import HomeScreen from './HomeScreen';
 import ClassesScreen from './ClassesScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
+import ToDoList from './ToDoList';
+import Goals from './Goals';
+import WeeklyCalendar from './WeeklyCalendar';
+import AddItem from './AddItem';
+
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80'
@@ -15,7 +23,7 @@ const darkTealSelection = '#133335'
 
 export default function App() {
   return (
-      
+    
     <Tab.Navigator 
       initialRouteName="Home"
       activeColor='white'
@@ -24,9 +32,9 @@ export default function App() {
       activeIndicatorStyle={{ backgroundColor: darkTealSelection}}
     >
       <Tab.Screen 
-        name="Home" 
-        component={HomeScreen} 
-        options={{ tabBarIcon: ({ color }) => (<Home color={color} />) }} 
+        name="Planner" 
+        component={WeeklyCalendar} 
+        options={{ tabBarIcon: ({ color }) => (<CircleUserRound color={color} />) }} 
       />
       <Tab.Screen 
         name="Classes" 
@@ -34,19 +42,21 @@ export default function App() {
         options={{ tabBarIcon: ({ color }) => (<Notebook color={color} />) }} 
       />
       <Tab.Screen 
-        name="Settings" 
-        component={SettingsScreen} 
-        options={{ tabBarIcon: ({ color }) => (<Settings color={color} />) }} 
+        name="Home" 
+        component={HomeScreen} 
+        options={{ tabBarIcon: ({ color }) => (<Home color={color} />) }} 
       />
       <Tab.Screen 
         name="Profile" 
         component={ProfileScreen} 
         options={{ tabBarIcon: ({ color }) => (<CircleUserRound color={color} />) }} 
       />
+      <Tab.Screen 
+        name="Settings" 
+        component={SettingsScreen} 
+        options={{ tabBarIcon: ({ color }) => (<Settings color={color} />) }} 
+      />
     </Tab.Navigator>
   );
 
 }
-
-
-
