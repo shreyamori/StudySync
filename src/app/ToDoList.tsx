@@ -1,9 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, StyleSheet, FlatList, TouchableOpacity, ListRenderItem } from 'react-native';
-import { Button, SizableText, Tabs, Text, XStack, YStack } from 'tamagui';
-import AddItem from './AddItem';
+import { Text, XStack } from 'tamagui';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './AppNavigator'; // Import RootStackParamList
 
+type ToDoListNavigationProp = StackNavigationProp<RootStackParamList, 'ToDoList'>;
 
 type ToDoItem = {
   id: string;
@@ -34,17 +36,25 @@ const ToDoList: React.FC = () => {
   return (
     <View style={styles.container}>
       <View>
-            <XStack>
-                <Text style={styles.headerText}>To Do List</Text>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => {
-                        navigation.navigate('AddItem');
-                    }}
-                >
-                    <Text style={styles.buttonText}>+</Text>
-                </TouchableOpacity>
-            </XStack>
+          <XStack>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => {
+                navigation.navigate('index'); // Adjust the screen name as needed
+              }}
+            >
+              <Text style={styles.backButtonText}>{'<'}</Text>
+            </TouchableOpacity>
+            <Text style={styles.headerText}>To Do List</Text>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                    navigation.navigate('AddItem', { source: 'ToDoList' });
+                }}
+            >
+                <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+          </XStack>
       </View>
       <Text  style={{fontFamily: 'Arial Rounded MT bold', left: 10, top: 80}} alignContent = "center" fontSize={18}  color = "#000000">
           Incomplete: 
@@ -71,7 +81,7 @@ const ToDoList: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     padding: 16,
   },
   headerText: {
@@ -117,6 +127,18 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 14,
     color: '#C4C4C4',
+  },
+  backButton: {
+    position: 'absolute',
+    left: 10,
+    top: 50,
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+    borderRadius: 5,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#000000',
   },
   button: {
     backgroundColor: '#EF6466',

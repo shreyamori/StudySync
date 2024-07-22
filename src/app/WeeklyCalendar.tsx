@@ -1,6 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Text, XStack } from 'tamagui';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './AppNavigator'; // Import RootStackParamList
+import { Button } from "react-native-paper";
+
+type WeeklyCalendarNavigationProp = StackNavigationProp<RootStackParamList, 'WeeklyCalendar'>;
 
 type Course = {
   time: string;
@@ -33,6 +39,9 @@ const courses: Course[] = [
 ];
 
 const WeeklyCalendar = () => {
+  const navigation = useNavigation<WeeklyCalendarNavigationProp>();
+  const { navigate } = useNavigation();
+
   const currentDay = new Date().getDay(); // Get the current day as a number (0-6)
   const currentDate = new Date().getDate(); // Get the current date (1-31)
 
@@ -51,11 +60,17 @@ const WeeklyCalendar = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <XStack>
+        <XStack alignItems="center">
+          <Button style={styles.backButton} 
+            onPress={() => navigate("index")}>
+            <Text style={styles.backButtonText}>{'<'}</Text>
+          </Button>
           <Text style={styles.headerText}>Weekly Calendar</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('AddItem', { source: 'WeeklyCalendar' });
+            }}
           >
             <Text style={styles.buttonText}>+</Text>
           </TouchableOpacity>
@@ -70,10 +85,10 @@ const WeeklyCalendar = () => {
         ))}
       </View>
       <XStack>
-        <Text  style={{fontFamily: 'Arial Rounded MT bold', top: 80, left: 30}} fontSize={15}  color = "#2F7B80" >
+        <Text  style={{fontFamily: 'Arial Rounded MT bold', top: 80, left: 30}} fontSize={15}  color="#2F7B80">
           Time
         </Text>
-        <Text  style={{fontFamily: 'Arial Rounded MT bold', top: 80, left: 110}} fontSize={15}  color = "#2F7B80" >
+        <Text  style={{fontFamily: 'Arial Rounded MT bold', top: 80, left: 110}} fontSize={15}  color="#2F7B80">
           Activity
         </Text>
       </XStack>
@@ -91,7 +106,6 @@ const WeeklyCalendar = () => {
           contentContainerStyle={styles.courseList}
         />
       </XStack>
-      
     </SafeAreaView>
   );
 };
@@ -107,8 +121,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 20,
-    top: 45,
-    left: 130,
+    top: 15,
+    left: 120,
+  },
+  backButton: {
+    position: 'absolute',
+    left: 10,
+    top: 20,
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+    borderRadius: 5,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#000000',
   },
   button: {
     backgroundColor: '#EF6466',
@@ -117,8 +143,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 40,
     height: 40,
-    top: 55,
-    left: 180,
+    position: 'absolute',
+    right: 10,
+    top: 25,
   },
   buttonText: {
     color: 'white',
@@ -129,11 +156,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingVertical: 16,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: '#EFEFEF',
     borderRadius: 10,
-    top: 60,
-    left: 25,
-    width: 345,
+    marginHorizontal: 25,
+    width: '90%',
+    alignSelf: 'center',
+    top: 45,
   },
   dayContainer: {
     alignItems: 'center',
@@ -156,21 +184,19 @@ const styles = StyleSheet.create({
   courseList: {
     padding: 16,
     paddingBottom: 200,
-    top: 90,
     width: 250,
   },
   timeList: {
     padding: 16,
     paddingBottom: 200,
-    backgroundColor: '#FFFFFF',
-    top: 90,
-    left: 0,
+    //backgroundColor: '#FFFFFF',
     width: 120,
   },
   courseCard: {
     padding: 16,
     borderRadius: 8,
     marginBottom: 16,
+    top: 100,
   },
   courseTitle: {
     fontFamily: 'Arial Rounded MT bold',

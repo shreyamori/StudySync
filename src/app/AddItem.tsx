@@ -1,37 +1,39 @@
-import { collection, getDocs } from 'firebase/firestore/lite';
-import { SizableText, Tabs, XStack, YStack } from 'tamagui';
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import ToDoList from './ToDoList';
-
-import { db } from '../support/firebase';
 import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from './AppNavigator';
+import { XStack } from 'tamagui';
 
-const Tab = createMaterialBottomTabNavigator();
 
-export default function AddItem() {
+type AddItemRouteProp = RouteProp<RootStackParamList, 'AddItem'>;
+type AddItemNavigationProp = StackNavigationProp<RootStackParamList, 'AddItem'>;
+
+const AddItem = () => {
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
     const [location, setLocation] = useState('');
-    const navigation = useNavigation();
+
+    const navigation = useNavigation<AddItemNavigationProp>();
+    const route = useRoute<AddItemRouteProp>();
+    const sourceScreen = route.params.source;
+
     return (
         <View style={styles.container}>
             <XStack>
-            <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                    navigation.navigate('ToDoList');
-                }}
-            >
-                <Text style={styles.buttonText}>Add</Text>
-            </TouchableOpacity>
-
-            <Text style={styles.title}>Add Item</Text>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                        // Navigate back to the source screen after adding an item
+                        navigation.navigate(sourceScreen);
+                    }}
+                >
+                    <Text style={styles.buttonText}>Add</Text>
+                </TouchableOpacity>
+                <Text style={styles.title}>Add Item</Text>
             </XStack>
-            
             
             <View style={styles.headingContainer}>
                 <Text style={styles.heading}>Task</Text>
@@ -57,7 +59,7 @@ export default function AddItem() {
                 <Text style={styles.heading}>Start Time</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder= "00:00 am/pm"
+                    placeholder="00:00 am/pm"
                     value={startTime}
                     onChangeText={setStartTime}
                 />
@@ -85,7 +87,7 @@ export default function AddItem() {
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -140,3 +142,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 });
+
+export default AddItem;
