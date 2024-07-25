@@ -1,11 +1,11 @@
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import React from 'react';
 import HomeScreen from './HomeScreen';
-import ClassesScreen from './ClassesScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
 import PlannerScreen from './PlannerScreen'; // Ensure PlannerScreen is imported correctly
-import { CircleUserRound, Home, Notebook, Settings } from '@tamagui/lucide-icons';
+import { CircleUserRound, Home, ListTodo, Notebook, Settings } from '@tamagui/lucide-icons';
+import MainClassesScreen from './Classes/MainClassesScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80';
@@ -23,11 +23,11 @@ const TabNavigator = () => {
       <Tab.Screen 
         name="Planner" 
         component={PlannerScreen} 
-        options={{ tabBarIcon: ({ color }) => (<CircleUserRound color={color} />) }} 
+        options={{ tabBarIcon: ({ color }) => (<ListTodo color={color} />) }} 
       />
       <Tab.Screen 
         name="Classes" 
-        component={ClassesScreen} 
+        component={MainClassesScreen} 
         options={{ tabBarIcon: ({ color }) => (<Notebook color={color} />) }} 
       />
       <Tab.Screen 
