@@ -1,16 +1,22 @@
 import React from 'react';
-import { collection, getDocs } from 'firebase/firestore/lite';
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
-import { Button, SizableText, Tabs, Text, XStack, YStack } from 'tamagui';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Fall2024 from './Fall2024';
+import YourClasses from './YourClasses';
+import MainClassesScreen from './MainClassesScreen';
 
-import { db } from '../../support/firebase';
+const Stack = createNativeStackNavigator();
 
-const Tab = createMaterialBottomTabNavigator();
-
-export default function ClassesScreen() {
+const ClassesScreen = () => {
   return (
-    <YStack flex={1} justifyContent="center" alignItems="center">
-      <Text>CLASSES</Text>
-    </YStack>
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName="MainClassesScreen">
+        <Stack.Screen name="MainClassesScreen" component={MainClassesScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Fall2024" component={Fall2024} />
+        <Stack.Screen name="YourClasses" component={YourClasses} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
+
+export default ClassesScreen;
