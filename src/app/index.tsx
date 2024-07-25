@@ -21,6 +21,7 @@ import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
 import Fall2024 from './Classes/Fall2024';
 import YourClasses from './Classes/YourClasses';
+import MainClassesScreen from './Classes/MainClassesScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,7 +35,7 @@ export default function App() {
       />
       <Tab.Screen
         name="Classes"
-        component={ClassesScreen}
+        component={MainClassesScreen}
         options={{ tabBarIcon: () => <Notebook /> }}
       />
       <Tab.Screen
