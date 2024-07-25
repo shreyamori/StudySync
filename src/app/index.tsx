@@ -3,9 +3,11 @@ import React from 'react';
 import HomeScreen from './HomeScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
-import PlannerScreen from './PlannerScreen'; // Ensure PlannerScreen is imported correctly
-import { CircleUserRound, Home, ListTodo, Notebook, Settings } from '@tamagui/lucide-icons';
+import Fall2024 from './Classes/Fall2024';
+import YourClasses from './Classes/YourClasses';
 import MainClassesScreen from './Classes/MainClassesScreen';
+import PlannerScreen from './PlannerScreen';
+import { ListTodo, Notebook, Home, CircleUserRound, Settings } from '@tamagui/lucide-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80';
