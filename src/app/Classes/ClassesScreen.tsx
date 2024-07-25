@@ -20,8 +20,7 @@ const Stack = createStackNavigator<RootStackParamList2>();
 const ClassesScreen = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainClassesScreen">
-        <Stack.Screen name="Home" component={App}/>
+      <Stack.Navigator>
         <Stack.Screen name="MainClassesScreen" component={MainClassesScreen}/>
         <Stack.Screen name="Fall2024" component={Fall2024} />
         <Stack.Screen name="YourClasses" component={YourClasses} />

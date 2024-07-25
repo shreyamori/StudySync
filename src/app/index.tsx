@@ -1,13 +1,27 @@
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import React from 'react';
+import {
+  CircleUserRound,
+  Home,
+  ListTodo,
+  Notebook,
+  Settings,
+  Settings2,
+} from '@tamagui/lucide-icons';
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
+import { Button, SizableText, Stack, Tabs, Text, XStack, YStack } from 'tamagui';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+import { db } from '../support/firebase';
+import ClassesScreen from './Classes/MainClassesScreen';
 import HomeScreen from './HomeScreen';
+import PlannerScreen from './PlannerScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
 import Fall2024 from './Classes/Fall2024';
 import YourClasses from './Classes/YourClasses';
 import MainClassesScreen from './Classes/MainClassesScreen';
-import PlannerScreen from './PlannerScreen';
-import { ListTodo, Notebook, Home, CircleUserRound, Settings } from '@tamagui/lucide-icons';
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80';
@@ -29,7 +43,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen 
         name="Classes" 
-        component={MainClassesScreen} 
+        component={YourClasses} 
         options={{ tabBarIcon: ({ color }) => (<Notebook color={color} />) }} 
       />
       <Tab.Screen 
