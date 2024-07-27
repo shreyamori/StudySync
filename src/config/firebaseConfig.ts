@@ -1,12 +1,17 @@
-import type { FirebaseOptions } from 'firebase/app';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-const PROJECT_ID = process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID ?? '';
-
-export const firebaseConfig: FirebaseOptions = {
-  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
-  authDomain: `${PROJECT_ID}.firebaseapp.com`,
-  projectId: PROJECT_ID,
-  storageBucket: `${PROJECT_ID}.appspot.com`,
-  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_SENDER_ID,
-  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAlpD34rLhkN8kClJnOdbXIdnS9PnKWuzg",
+  authDomain: "seeds-studysync.firebaseapp.com",
+  projectId: "seeds-studysync",
+  storageBucket: "seeds-studysync.appspot.com",
+  messagingSenderId: "356155208251",
+  appId: "1:356155208251:web:642b4e77b5693fd1bc221e"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
