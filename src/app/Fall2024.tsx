@@ -19,9 +19,21 @@ const Fall2024: React.FC = () => {
             </Appbar.Header>
             <YStack flex={1} margin={20} justifyContent='center' alignItems='flex-start' > 
         <XStack space="$2" marginBottom={20}>
-            <Button >Discover</Button>
-            <Button themeInverse>Your Classes</Button>
-            <Button>Classmates</Button>
+                    <Button
+                        onPress={() => navigation.navigate("MainClassesScreen")}
+                    >
+                        <Text>Discover</Text>
+                    </Button>
+                    <Button
+                        onPress={() => navigation.navigate("YourClasses")}
+                    >
+                        <Text>Your Classes</Text>
+                    </Button>
+                    <Button
+                        onPress={() => {}}
+                    >
+                        <Text>Discover</Text>
+                    </Button>
         </XStack>
         </YStack>
         </View>

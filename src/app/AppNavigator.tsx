@@ -4,6 +4,9 @@ import React from 'react';
 import ToDoList from './ToDoList';
 import AddItem from './AddItem';
 import WeeklyCalendar from './WeeklyCalendar';
+import Fall2024 from './Fall2024';
+import MainClassesScreen from './MainClassesScreen';
+import YourClasses from './YourClasses';
 import TabNavigator from './index'; // Import the TabNavigator
 
 export type RootStackParamList = {
@@ -11,6 +14,9 @@ export type RootStackParamList = {
   ToDoList: undefined;
   WeeklyCalendar: undefined;
   AddItem: { source: 'ToDoList' | 'WeeklyCalendar' };
+  Fall2024: undefined;
+  MainClassesScreen: undefined;
+  YourClasses: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -23,6 +29,9 @@ const AppNavigator = () => {
         <Stack.Screen name="ToDoList" component={ToDoList} />
         <Stack.Screen name="WeeklyCalendar" component={WeeklyCalendar} />
         <Stack.Screen name="AddItem" component={AddItem} />
+        <Stack.Screen name="Fall2024" component={Fall2024} />
+        <Stack.Screen name="MainClassesScreen" component={MainClassesScreen} />
+        <Stack.Screen name="YourClasses" component={YourClasses} />
       </Stack.Navigator>
     </NavigationContainer>
   );

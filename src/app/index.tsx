@@ -14,14 +14,14 @@ import { NavigationContainer } from '@react-navigation/native';
 
 
 import { db } from '../support/firebase';
-import ClassesScreen from './Classes/MainClassesScreen';
+import ClassesScreen from './MainClassesScreen';
 import HomeScreen from './HomeScreen';
 import PlannerScreen from './PlannerScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
-import Fall2024 from './Classes/Fall2024';
-import YourClasses from './Classes/YourClasses';
-import MainClassesScreen from './Classes/MainClassesScreen';
+import Fall2024 from './Fall2024';
+import YourClasses from './YourClasses';
+import MainClassesScreen from './MainClassesScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80';

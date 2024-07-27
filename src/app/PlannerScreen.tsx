@@ -4,7 +4,6 @@ import { Button, Text, YStack } from 'tamagui';
 import { useNavigation } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import HomeScreen from './HomeScreen';
-import ClassesScreen from './ClassesScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
 import { CircleUserRound, Home, Notebook, Settings } from '@tamagui/lucide-icons';
@@ -42,7 +41,7 @@ const PlannerScreen: React.FC = () => {
                     <Text style={styles.buttonText}>Weekly Calendar</Text>
                 </Button>
                 <Button
-                    onPress={() => navigation.navigate("ToDoList")}
+                    onPress={() => navigation.navigate('ToDoList')}
                     style={styles.button}
                 >
                     <Text style={styles.buttonText}>To-Do List</Text>

@@ -1,6 +1,14 @@
+// App.tsx
 import React from 'react';
-import AppNavigator from './AppNavigator'; // Import the AppNavigator
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './AppNavigator';
 
-export default function App() {
-  return <AppNavigator />;
-}
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
+};
+
+export default App;
