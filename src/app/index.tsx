@@ -39,11 +39,11 @@ const TabNavigator = () => {
       <Tab.Screen 
         name="Planner" 
         component={PlannerScreen} 
-        options={{ tabBarIcon: ({ color }) => (<ListTodo color={color} />) }} 
+        options={{ tabBarIcon: ({ color }) => (<ListTodo color={color} />)}} 
       />
       <Tab.Screen 
         name="Classes" 
-        component={YourClasses} 
+        component={MainClassesScreen} 
         options={{ tabBarIcon: ({ color }) => (<Notebook color={color} />) }} 
       />
       <Tab.Screen 
