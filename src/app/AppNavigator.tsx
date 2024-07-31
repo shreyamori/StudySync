@@ -8,6 +8,7 @@ import Fall2024 from './Fall2024';
 import MainClassesScreen from './MainClassesScreen';
 import YourClasses from './YourClasses';
 import TabNavigator from './index'; // Import the TabNavigator
+import ENGR1181 from './ENGR1181';
 
 export type RootStackParamList = {
   Main: undefined;
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   Fall2024: undefined;
   MainClassesScreen: undefined;
   YourClasses: undefined;
+  ENGR1181: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -32,6 +34,7 @@ const AppNavigator = () => {
         <Stack.Screen name="Fall2024" component={Fall2024} />
         <Stack.Screen name="MainClassesScreen" component={MainClassesScreen} />
         <Stack.Screen name="YourClasses" component={YourClasses} />
+        <Stack.Screen name="ENGR1181" component={ENGR1181}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

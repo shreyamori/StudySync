@@ -81,27 +81,17 @@ const ClassItem = ({ title, friends }) => (
     </>
 );
 
-const ClassesList = (courses) => (
-    <FlatList
-    data={courses}
-    keyExtractor={(item) => item.id}
-    renderItem={({ item }) => <ClassItem title={item.name} friends={item.friends} />}
-    ListFooterComponent={() => <PlusCircle justifyContent="center" alignSelf="center" size={40} marginTop={10} />}
-/>
-);
-
 const Fall2024: React.FC = () => {
     const navigation = useNavigation();
     const [subjectChoice, setSubjectChoice] = useState("ALL");
     const [subjectData, setSubjectData] = useState(allClasses);
-    const getSubjectData = (subject: string) => {
-            return data2.find(item => item.subject === subject);
-        }
-
-    useEffect(() => {
-        const temp = getSubjectData(subjectChoice);
-        setSubjectData(temp.courses);
-    },[subjectChoice]);
+        
+        // Function to update subject data based on the selected subject
+        const changeSubject = (subject) => {
+            const tempData = data2.find(item => item.subject === subject);
+                setSubjectData(tempData.courses);
+        
+        };
 
     return (
         <>
@@ -111,19 +101,23 @@ const Fall2024: React.FC = () => {
             <Appbar.Action icon="magnify" theme={{}}/>
             </Appbar.Header>
             <YStack flex={1} margin={20} justifyContent='center' alignItems='flex-start'> 
-                <ScrollView>        
+                <ScrollView horizontal>        
                     <XStack space="$2" marginBottom={15} height={50}>
                         {data2.map(category => {
                             return (
                                 <Button key={category.subject} themeInverse={subjectChoice === category.subject} 
-                                    onPress={() => {setSubjectChoice(category.subject)
-                                                    getSubjectData(category.subject)}}>{category.subject}</Button>
+                                    onPress={() => {setSubjectChoice(category.subject)}}>{category.subject}</Button>
                             )
                         })}
                     </XStack>
                 </ScrollView>
-                <ClassesList courses= {subjectData}/>
-        </YStack>
+                <FlatList
+                data={subjectData}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => <ClassItem title={item.name} friends={item.friends} />}
+                ListFooterComponent={() => <PlusCircle justifyContent="center" alignSelf="center" size={40} marginTop={10} />}
+                />
+            </YStack>
         </>
     );
 }

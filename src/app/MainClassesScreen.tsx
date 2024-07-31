@@ -9,15 +9,19 @@ import { ChevronRight, ChevronsRight, PlusCircle, SquareAsterisk, History, Star 
 import {Avatar, NativeBaseProvider} from "native-base";
 import { AvatarGenerator } from "random-avatar-generator";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import TabNavigator from '.';
+import TabNavigator from './index';
+
+const Tab = createMaterialBottomTabNavigator();
+
 type MainClassesProp = StackNavigationProp<RootStackParamList, 'MainClassesScreen'>;
 
 const MainClassesScreen: React.FC = () => {
     const navigation = useNavigation<MainClassesProp>();
     return (
         <>
-            <Appbar.Header style={{ marginLeft: 20 }}>
-                <Text variant='headlineLarge' style={{marginRight: 180}}>Discover</Text>
+            <Appbar.Header>
+                <Appbar.Action icon="home" onPress={() => navigation.navigate("index")}/>
+                <Text variant='headlineLarge' style={{marginRight: 150}}>Discover</Text>
                 <Appbar.Action icon="magnify" style={{ justifyContent: 'flex-end' }} />
             </Appbar.Header>
             <YStack flex={1} margin={20} justifyContent='center' alignItems='flex-start'>

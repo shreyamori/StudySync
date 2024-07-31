@@ -22,6 +22,7 @@ import SettingsScreen from './SettingsScreen';
 import Fall2024 from './Fall2024';
 import YourClasses from './YourClasses';
 import MainClassesScreen from './MainClassesScreen';
+import ENGR1181 from './ENGR1181';
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80';

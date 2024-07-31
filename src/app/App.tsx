@@ -8,7 +8,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <AppNavigator />
-      <TabNavigator/>
     </NavigationContainer>
   );
 };
