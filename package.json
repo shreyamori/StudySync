@@ -11,7 +11,8 @@
     "lint": "eslint --max-warnings 0 .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "npm run typecheck && npm run lint && npm run format:check"
+    "test": "npm run typecheck && npm run lint && npm run format:check",
+    "generate-themes": "tamagui generate-themes ./path/to/theme-builder.ts ./theme-output.ts"
   },
   "dependencies": {
     "@atlaskit/avatar-group": "^9.9.1",
@@ -24,6 +25,8 @@
     "@tamagui/config": "^1.98.3",
     "@tamagui/font-inter": "^1.98.3",
     "@tamagui/lucide-icons": "^1.98.3",
+    "@tamagui/toast": "^1.106.0",
+    "burnt": "^0.12.2",
     "expo": "~51.0.14",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.5",
@@ -45,7 +48,7 @@
     "react-native-svg": "^12.1.1",
     "react-native-timer-picker": "^1.10.2",
     "react-native-vector-icons": "^10.1.0",
-    "tamagui": "^1.98.3"
+    "tamagui": "^1.106.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

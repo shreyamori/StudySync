@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from './AppNavigator';
 import { XStack, YStack, ScrollView, Button} from 'tamagui';
+import { LinearGradient } from 'tamagui/linear-gradient'
 import { ChevronRight, ChevronsRight, PlusCircle, SquareAsterisk, History, Star } from "@tamagui/lucide-icons";
 import {Avatar, NativeBaseProvider} from "native-base";
 import { AvatarGenerator } from "random-avatar-generator";
@@ -18,15 +19,15 @@ type MainClassesProp = StackNavigationProp<RootStackParamList, 'MainClassesScree
 const MainClassesScreen: React.FC = () => {
     const navigation = useNavigation<MainClassesProp>();
     return (
-        <>
-            <Appbar.Header>
-                <Appbar.Action icon="home" onPress={() => navigation.navigate("index")}/>
-                <Text variant='headlineLarge' style={{marginRight: 150}}>Discover</Text>
-                <Appbar.Action icon="magnify" style={{ justifyContent: 'flex-end' }} />
+        <>           
+            <Appbar.Header style={{backgroundColor:"#FFFFFF"}}>
+                <Appbar.Action icon="home" onPress={() => navigation.navigate("index")} color='#2F7B80' size={40}/>
+                <Text variant='headlineLarge' style={{marginRight: 145}}>Discover</Text>
+                <Appbar.Action icon="magnify" />
             </Appbar.Header>
             <YStack flex={1} margin={20} justifyContent='center' alignItems='flex-start'>
                 <XStack space="$2" marginBottom={20}>
-                    <Button themeInverse onPress={() => navigation.navigate("MainClassesScreen")}>Discover</Button>
+                    <Button themeInverse onPress={() => navigation.navigate("MainClassesScreen")} backgroundColor={"#EF6466"}>Discover</Button>
                     <Button onPress={() => navigation.navigate("YourClasses")}>Your Classes</Button>
                     <Button onPress={() => {}}><Text>Classmates</Text></Button>
                 </XStack>
