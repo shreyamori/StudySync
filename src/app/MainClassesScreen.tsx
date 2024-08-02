@@ -34,19 +34,16 @@ const MainClassesScreen: React.FC = () => {
                 <XStack>
                     <Text style={{ marginBottom: 10 }} variant='titleMedium'>All Semesters</Text>
                 </XStack>
-                <ScrollView horizontal contentContainerStyle={{ flexGrow: 1, paddingBottom: 200 }}>
+                <ScrollView horizontal contentContainerStyle={{ flexGrow: 1, paddingBottom:40 }}>
                     <XStack alignContent='flex-end' padding={2}>
-                        <Card style={{ marginRight: 20, width: 200 }} onPress={() => navigation.navigate('Fall2024')}>
-                            <Card.Cover />
-                            <Card.Title title="Fall 2024" subtitle="500 classes" />
+                        <Card style={{ marginRight: 20, width: 200, height:190 }} onPress={() => navigation.navigate('Fall2024')}>
+                            <Card.Cover source={require('../../assets/fall2024(1).png')} />
                         </Card>
-                        <Card style={{ marginRight: 20, width: 200 }}>
-                            <Card.Cover />
-                            <Card.Title title="Spring 2025" subtitle="600 classes" />
+                        <Card style={{ marginRight: 20, width: 200, height:190 }}>
+                            <Card.Cover source={require('../../assets/spring2025.png')}/>
                         </Card>
-                        <Card style={{ marginRight: 20, width: 200 }}>
-                            <Card.Cover />
-                            <Card.Title title="Fall 2025" subtitle="600 classes" />
+                        <Card style={{ marginRight: 20, width: 200, height:190 }}>
+                        <Card.Cover source={require('../../assets/fall2025.png')}/>
                         </Card>
                     </XStack>
                 </ScrollView>
@@ -56,23 +53,23 @@ const MainClassesScreen: React.FC = () => {
                 <ScrollView width={350}>
                     <YStack>
                         <XStack style={{ marginBottom: 20 }}>
-                            <Card style={{ width: 160, marginRight: 20, marginLeft: 2, marginTop: 2 }} onPress={() => navigation.navigate('YourClasses')}>
-                                <Card.Title title="Fall 2024" subtitle="5 classes" />
-                                <Star marginLeft={15} marginBottom={10} />
+                            <Card style={{ width: 160, marginRight: 20, marginLeft: 2, marginTop: 2,backgroundColor:"#f89e69" }} onPress={() => navigation.navigate('YourClasses')}>
+                                <Card.Title title="Fall 2024" subtitle="5 classes" titleStyle={{color: "white"}} subtitleStyle={{color: "white"}}/>
+                                <Star marginLeft={15} marginBottom={10} color={"white"}/>
                             </Card>
-                            <Card style={{ width: 160, marginTop: 2 }}>
-                                <Card.Title title="Spring 2025" subtitle="4 classes" />
-                                <ChevronsRight marginLeft={15} marginBottom={10} />
+                            <Card style={{ width: 160, marginTop: 2, backgroundColor:"#f97da1" }}>
+                                <Card.Title title="Spring 2025" subtitle="4 classes" titleStyle={{color: "white"}} subtitleStyle={{color: "white"}}/>
+                                <ChevronsRight marginLeft={15} marginBottom={10} color={"white"}/>
                             </Card>
                         </XStack>
                         <XStack style={{ marginBottom: 20 }}>
-                            <Card style={{ width: 160, marginRight: 20, marginLeft: 2, marginTop: 2 }}>
-                                <Card.Title title="Fall 2023" subtitle="6 classes" />
-                                <History marginLeft={15} marginBottom={10} />
+                            <Card style={{ width: 160, marginRight: 20, marginLeft: 2, marginTop: 2, backgroundColor:"#f3715f" }}>
+                                <Card.Title title="Fall 2023" subtitle="6 classes" titleStyle={{color: "white"}} subtitleStyle={{color: "white"}}/>
+                                <History marginLeft={15} marginBottom={10} color={"white"}/>
                             </Card>
-                            <Card style={{ width: 160 }}>
-                                <Card.Title title="Spring 2024" subtitle="3 classes" />
-                                <History marginLeft={15} marginBottom={10} />
+                            <Card style={{ width: 160, backgroundColor:"#f3715f" }}>
+                                <Card.Title title="Spring 2024" subtitle="3 classes" titleStyle={{color: "white"}} subtitleStyle={{color: "white"}}/>
+                                <History marginLeft={15} marginBottom={10} color={"white"}/>
                             </Card>
                         </XStack>
                     </YStack>

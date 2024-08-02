@@ -55,12 +55,13 @@ const TabNavigator = () => {
       <Tab.Screen 
         name="Profile" 
         component={ProfileScreen} 
-        options={{ tabBarIcon: ({ color }) => (<CircleUserRound color={color} />) }} 
+        options={{ tabBarIcon: ({ color }) => (<CircleUserRound color={color} />)}} 
       />
       <Tab.Screen 
         name="Settings" 
         component={SettingsScreen} 
-        options={{ tabBarIcon: ({ color }) => (<Settings color={color} />) }} 
+        options={{ tabBarIcon: ({ color }) => (<Settings color={color} />) }}
+         
       />
     </Tab.Navigator>
   );

@@ -64,7 +64,7 @@ const YourClasses: React.FC = () => {
                 <XStack space="$2" marginBottom={20}>
                     <Button onPress={() => navigation.navigate("MainClassesScreen")}><Text>Discover</Text></Button>
                     <Button themeInverse onPress={() => navigation.navigate("YourClasses")} backgroundColor={"#EF6466"}>Your Classes</Button>
-                    <Button onPress={() => {}}>Classmates</Button>
+                    <Button onPress={() => navigation.navigate("friends")}>Classmates</Button>
                 </XStack>
                 <FlatList
                     data={data2}

@@ -62,7 +62,8 @@ const WeeklyCalendar = () => {
       <View>
         <XStack alignItems="center">
           <Button style={styles.backButton} 
-            onPress={() => navigate("index")}>
+                          onPress={() => {
+                            navigation.navigate('PlannerScreen')}}>
             <Text style={styles.backButtonText}>{'<'}</Text>
           </Button>
           <Text style={styles.headerText}>Weekly Calendar</Text>

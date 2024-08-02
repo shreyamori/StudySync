@@ -24,7 +24,7 @@ const HomeScreen = () => {
     return (
         <YStack flex={1}>
             <Text style={{ fontFamily: 'Arial Rounded MT bold', top: 80, left: 25 }} fontSize={50} color={logoRed}>
-                Hi Student.
+                Hi Noor!
             </Text>
             <View style={styles.calendarHeader}>
                 {daysOfWeek.map((day, index) => (

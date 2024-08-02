@@ -9,6 +9,8 @@ import MainClassesScreen from './MainClassesScreen';
 import YourClasses from './YourClasses';
 import TabNavigator from './index'; // Import the TabNavigator
 import ENGR1181 from './ENGR1181';
+import friends from './friends';
+import edit from './edit';
 
 export type RootStackParamList = {
   Main: undefined;
@@ -35,6 +37,9 @@ const AppNavigator = () => {
         <Stack.Screen name="MainClassesScreen" component={MainClassesScreen} />
         <Stack.Screen name="YourClasses" component={YourClasses} />
         <Stack.Screen name="ENGR1181" component={ENGR1181}/>
+        <Stack.Screen name="friends" component={friends}/>
+        <Stack.Screen name="edit" component={edit}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -40,8 +40,7 @@ const ToDoList: React.FC = () => {
             <TouchableOpacity
               style={styles.backButton}
               onPress={() => {
-                navigation.navigate('index'); // Adjust the screen name as needed
-              }}
+                navigation.navigate('PlannerScreen')}}
             >
               <Text style={styles.backButtonText}>{'<'}</Text>
             </TouchableOpacity>

@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView, Image } from 'react-native';
-import { Button, Text, YStack } from 'tamagui';
+import { Button, YStack } from 'tamagui';
 import { useNavigation } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import HomeScreen from './HomeScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingsScreen from './SettingsScreen';
+import TabNavigator from './index';
 import { CircleUserRound, Home, Notebook, Settings } from '@tamagui/lucide-icons';
+import { Appbar,Text } from 'react-native-paper';
 
 const Tab = createMaterialBottomTabNavigator();
 const tealBlue = '#2F7B80';
@@ -17,7 +19,6 @@ const PlannerScreen: React.FC = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-  
             <View>
                 <Text style={styles.headerText}>Planner</Text>
             </View>
@@ -46,6 +47,12 @@ const PlannerScreen: React.FC = () => {
                 >
                     <Text style={styles.buttonText}>To-Do List</Text>
                 </Button>
+                <Button
+                    onPress={() => navigation.navigate('index')}
+                    style={styles.button}
+                >
+                    <Text style={styles.buttonText}>Home</Text>
+                </Button>
             </YStack>
         </SafeAreaView>
     );
@@ -62,7 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginVertical: 20,
+        marginVertical: 5,
         top: 45,
         left: 5,
     },
@@ -70,6 +77,7 @@ const styles = StyleSheet.create({
         top: 30,
         width: 350,
         height: 350,
+        marginBottom: 20,
         resizeMode: 'contain',
         alignSelf: 'center',
     },
@@ -78,7 +86,6 @@ const styles = StyleSheet.create({
         left: 0,
         width: 340,
         height: 50,
-        backgroundColor: '#F5F5F5',
         padding: 10,
         borderRadius: 45,
         marginBottom: 20,
