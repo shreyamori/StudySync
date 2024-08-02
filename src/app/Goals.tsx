@@ -131,7 +131,7 @@ const Goals: React.FC = () => {
             <TouchableOpacity
               style={styles.backButton}
               onPress={() => {
-                navigation.navigate('index'); // Adjust the screen name as needed
+                navigation.navigate('PlannerScreen'); // Adjust the screen name as needed
               }}
             >
               <Text style={styles.backButtonText}>{'<'}</Text>
